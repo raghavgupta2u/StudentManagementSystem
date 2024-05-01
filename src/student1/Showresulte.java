@@ -59,7 +59,6 @@ public class Showresulte extends javax.swing.JFrame {
         sText = new javax.swing.JTextField();
         ssText = new javax.swing.JTextField();
         pText = new javax.swing.JTextField();
-        clear = new javax.swing.JButton();
         save = new javax.swing.JButton();
         pengText = new javax.swing.JTextField();
         pmatheText = new javax.swing.JTextField();
@@ -153,16 +152,13 @@ public class Showresulte extends javax.swing.JFrame {
         getContentPane().add(ssText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 426, 294, -1));
         getContentPane().add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 500, 294, -1));
 
-        clear.setText("Clear");
-        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 630, -1, -1));
-
         save.setText("Update");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
             }
         });
-        getContentPane().add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 630, -1, -1));
+        getContentPane().add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 630, -1, -1));
         getContentPane().add(pengText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 194, 77, -1));
 
         pmatheText.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +198,7 @@ public class Showresulte extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(896, 16, 40, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(896, 16, 40, 30));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("English");
@@ -247,9 +243,17 @@ public class Showresulte extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Punjabi");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 466, -1, -1));
+
+        jTextField1.setEnabled(false);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 170, -1));
+
+        jTextField2.setEnabled(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 220, -1));
+
+        jTextField3.setEnabled(false);
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 240, -1));
+
+        jTextField4.setEnabled(false);
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 110, 240, -1));
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,7 +280,7 @@ public class Showresulte extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 630, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 630, -1, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left-arrow.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -357,7 +361,7 @@ public class Showresulte extends javax.swing.JFrame {
            
             } catch (SQLException | ClassNotFoundException ex) {
                 //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(this, "record not found");
+                JOptionPane.showMessageDialog(this, "result not found");
             }
           
         }
@@ -671,7 +675,6 @@ public class Showresulte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField artText;
     private javax.swing.JComboBox<String> cl;
-    private javax.swing.JButton clear;
     private javax.swing.JTextField csText;
     private javax.swing.JTextField engText;
     private javax.swing.JTextField evsText;
