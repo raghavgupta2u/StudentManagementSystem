@@ -167,7 +167,7 @@ public class homepage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        Showresulte rs=new Showresulte();
+        Addresult rs=new Addresult();
         this.dispose();
         rs.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed

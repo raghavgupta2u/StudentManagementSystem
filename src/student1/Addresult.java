@@ -88,6 +88,7 @@ public class Addresult extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -254,6 +255,14 @@ public class Addresult extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Punjabi");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 466, -1, -1));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left-arrow.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 40, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rg (1).jpg"))); // NOI18N
         jLabel15.setText("jLabel15");
@@ -583,6 +592,13 @@ public class Addresult extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_evsTextActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        homepage hm = new homepage();
+        hm.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -627,6 +643,7 @@ public class Addresult extends javax.swing.JFrame {
     private javax.swing.JTextField evsText;
     private javax.swing.JTextField gkText;
     private javax.swing.JTextField hindiText;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
