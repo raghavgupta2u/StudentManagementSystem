@@ -308,7 +308,7 @@ public class Addresult extends javax.swing.JFrame {
             ResultSetMetaData stData=(ResultSetMetaData) rs.getMetaData();
             int q=stData.getColumnCount();
             DefaultTableModel RecordTable= (DefaultTableModel) jTable1.getModel();
-           RecordTable.setRowCount(0);
+            RecordTable.setRowCount(0);
             while(rs.next()){
                 //Vector is like the dynamic array.
                 Vector columnData=new Vector();
@@ -325,7 +325,21 @@ public class Addresult extends javax.swing.JFrame {
 
             }  
         } catch (ClassNotFoundException | SQLException ex) {}  
-   if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){     
+   if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){  
+       try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("Select * from resulte1st2nd where class=? AND rollno=?");
+            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
+            pst.setString(2, rollno.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                    int yes=JOptionPane.showConfirmDialog(this,"Resulte is allready available.\nDo you want to Update Resulte?","update",JOptionPane.YES_NO_OPTION);
+                if(JOptionPane.YES_OPTION==yes)
+                new Showresulte().setVisible(true);
+            }
+         } catch (ClassNotFoundException | SQLException ex) {} 
+       
          engText.setEditable(true);
          pengText.setEditable(true);
          hindiText.setEditable(true);
@@ -348,6 +362,8 @@ public class Addresult extends javax.swing.JFrame {
          pssText.setEditable(false);
          pText.setEditable(false);
          ppText.setEditable(false);
+         
+          
    }  
    else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")) {
           engText.setEditable(true);
