@@ -48,8 +48,6 @@ public class Showresulte extends javax.swing.JFrame {
         rollno = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         search = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         engText = new javax.swing.JTextField();
         matheText = new javax.swing.JTextField();
         hindiText = new javax.swing.JTextField();
@@ -88,6 +86,15 @@ public class Showresulte extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,21 +122,6 @@ public class Showresulte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(812, 16, -1, 33));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Name", "Father Name", "rollno", "aadharno"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 74, 1088, 62));
         getContentPane().add(engText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 194, 220, -1));
 
         matheText.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +153,7 @@ public class Showresulte extends javax.swing.JFrame {
         getContentPane().add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 500, 294, -1));
 
         clear.setText("Clear");
-        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1022, 635, -1, -1));
+        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 630, -1, -1));
 
         save.setText("Update");
         save.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +161,7 @@ public class Showresulte extends javax.swing.JFrame {
                 saveActionPerformed(evt);
             }
         });
-        getContentPane().add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 635, -1, -1));
+        getContentPane().add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 630, -1, -1));
         getContentPane().add(pengText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 194, 77, -1));
 
         pmatheText.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +246,36 @@ public class Showresulte extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Punjabi");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 466, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 170, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 220, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 240, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 110, 240, -1));
+
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("aadhar no");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 90, -1, -1));
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("class");
+        jLabel17.setToolTipText("");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("rollno");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("name");
+        jLabel16.setToolTipText("");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 630, -1, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rg (1).jpg"))); // NOI18N
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 680));
@@ -271,34 +293,7 @@ public class Showresulte extends javax.swing.JFrame {
         java.sql.Statement st=null;
         ResultSet rs=null;
         java.sql.Connection con=null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
-            pst=con.prepareStatement("Select * from student where class=? AND rollno=?");
-            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
-            pst.setString(2, rollno.getText());
-            rs=pst.executeQuery();
-
-            ResultSetMetaData stData=(ResultSetMetaData) rs.getMetaData();
-            int q=stData.getColumnCount();
-            DefaultTableModel RecordTable= (DefaultTableModel) jTable1.getModel();
-            RecordTable.setRowCount(0);
-            while(rs.next()){
-                //Vector is like the dynamic array.
-                Vector columnData=new Vector();
-                for(int i=1;i<=q;i++){
-
-                    columnData.add(rs.getString("name"));
-                    columnData.add(rs.getString("class"));
-                    columnData.add(rs.getString("rollno"));
-                    columnData.add(rs.getString("aadharnumber"));
-
-                }
-                RecordTable.addRow(columnData);
-                //System.out.println(columnData);
-
-            }
-        } catch (ClassNotFoundException | SQLException ex) {}
+       
         if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
             /*engText.setEditable(true);
             pengText.setEditable(true);
@@ -329,12 +324,16 @@ public class Showresulte extends javax.swing.JFrame {
                
                   Class.forName("com.mysql.cj.jdbc.Driver");
                   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
-                  pst = con.prepareStatement("Select * from resulte1st2nd where name=? AND rollno=?");
-                  pst.setString(1,name);
+                  pst = con.prepareStatement("Select * from resulte1st2nd where class=? AND rollno=?");
+                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
                   pst.setString(2, rollno.getText());
                 
                 rs = pst.executeQuery();
                 if (rs.next()){
+                 jTextField1.setText(rs.getString("name"));
+                 jTextField2.setText(rs.getString("class"));
+                 jTextField3.setText(rs.getString("rollno"));
+                 jTextField4.setText(rs.getString("aadharnumber"));
                  engText.setText(rs.getString("Eng"));
                  hindiText.setText(rs.getString("hindi"));
                  artText.setText(rs.getString("Art"));
@@ -472,10 +471,10 @@ public class Showresulte extends javax.swing.JFrame {
         Statement st=null;
         PreparedStatement pst=null;
 
-         name= jTable1.getValueAt(0, 0).toString() ;
-         clas= jTable1.getValueAt(0, 1).toString() ;
-         roll= jTable1.getValueAt(0, 2).toString() ;
-         addh= jTable1.getValueAt(0, 3).toString() ;
+         name= jTextField1.getText() ;
+         clas= jTextField2.getText() ;
+         roll= jTextField3.getText() ;
+         addh= jTextField4.getText() ;
 
         // System.out.print(name);
         // System.out.print(clas);
@@ -487,7 +486,7 @@ public class Showresulte extends javax.swing.JFrame {
             java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
 
             if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
-                pst=con.prepareStatement("update resulte1st2nd set Eng=?,hindi=?,Mathe=?,Art=?,GK=?,peng=?,phindi=?,pmathe=?,part=?,pgk=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte1st2nd set Eng=?,hindi=?,Math=?,Art=?,GK=?,peng=?,phindi=?,pmath=?,part=?,pgk=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -502,7 +501,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(12, roll);
                 
                 pst.executeUpdate();
-                JOptionPane.showMessageDialog(this, "saved");
+                JOptionPane.showMessageDialog(this, "update");
             }
             else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
                 pst=con.prepareStatement("update resulte3rd4th set Eng=?,hindi=?,Mathe=?,GK=?,evs=?,peng=?,phindi=?,pmathe=?,pgk=?,pevs=? where class=? and rollno=?");
@@ -600,11 +599,23 @@ public class Showresulte extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel RecordTable= (DefaultTableModel) jTable1.getModel();
-        RecordTable.setRowCount(0);
+       // DefaultTableModel RecordTable= (DefaultTableModel) jTable1.getModel();
+       // RecordTable.setRowCount(0);
+       
+        jTextField1.getText() ;
+        jTextField2.getText() ;
+        jTextField3.getText() ;
+        jTextField4.getText() ;
         rollno.setText(null);
         cl.setSelectedIndex(0);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        printresult pt  = new printresult();
+        pt.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -650,6 +661,7 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JTextField evsText;
     private javax.swing.JTextField gkText;
     private javax.swing.JTextField hindiText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -658,6 +670,10 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -666,8 +682,10 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField matheText;
     private javax.swing.JTextField pText;
     private javax.swing.JTextField partText;
