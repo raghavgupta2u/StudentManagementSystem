@@ -95,6 +95,11 @@ public class Showresulte extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -290,6 +295,26 @@ public class Showresulte extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 40, -1));
 
+        jButton3.setText("Add");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 580, 60, -1));
+
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Total");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, -1, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 580, 180, -1));
+
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Result");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PASS", "1st", "2nd", "3rd" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, 190, -1));
+
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rg (1).jpg"))); // NOI18N
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 680));
 
@@ -351,6 +376,9 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  partText.setText(rs.getString("part"));
                  pgkText.setText(rs.getString("pgk"));
+                 jTextField1.setText(rs.getString("total"));
+                 jComboBox1.setSelectedItem(rs.getString("resulte"));
+                 
                 }
            
             } catch (SQLException | ClassNotFoundException ex) {
@@ -398,6 +426,8 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  pgkText.setText(rs.getString("pgk"));
                  pevsText.setText(rs.getString("pevs"));
+                 jTextField1.setText(rs.getString("total"));
+                 jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
             } catch (SQLException | ClassNotFoundException ex) {
@@ -443,6 +473,8 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
+                 jTextField1.setText(rs.getString("total"));
+                 jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
             } catch (SQLException | ClassNotFoundException ex) {
@@ -489,6 +521,8 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
+                 jTextField1.setText(rs.getString("total"));
+                 jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
             } catch (SQLException | ClassNotFoundException ex) {
@@ -534,6 +568,8 @@ public class Showresulte extends javax.swing.JFrame {
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
                  ppeText.setText(rs.getString("pphysicaledcation"));
+                 jTextField1.setText(rs.getString("total"));
+                 jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
             } catch (SQLException | ClassNotFoundException ex) {
@@ -566,7 +602,7 @@ public class Showresulte extends javax.swing.JFrame {
             java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
 
             if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
-                pst=con.prepareStatement("update resulte1st2nd set Eng=?,hindi=?,Math=?,Art=?,GK=?,peng=?,phindi=?,pmath=?,part=?,pgk=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte1st2nd set Eng=?,hindi=?,Math=?,Art=?,GK=?,peng=?,phindi=?,pmath=?,part=?,pgk=?,total=?,resulte=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -577,14 +613,17 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(8, pmatheText.getText());
                 pst.setString(9,partText.getText());
                 pst.setString(10,pgkText.getText());
-                pst.setString(11, clas);
-                pst.setString(12, rolll);
+                pst.setString(11, jTextField1.getText());
+                pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                pst.setString(13, clas);
+                pst.setString(14, rolll);
+                
                 
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "update");
             }
             else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
-                pst=con.prepareStatement("update resulte3rd4th set Eng=?,hindi=?,Mathe=?,GK=?,evs=?,peng=?,phindi=?,pmathe=?,pgk=?,pevs=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte3rd4th set Eng=?,hindi=?,Mathe=?,GK=?,evs=?,peng=?,phindi=?,pmathe=?,pgk=?,pevs=?,total=?,resulte=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -595,70 +634,74 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(8, pmatheText.getText());
                 pst.setString(9,pgkText.getText());
                 pst.setString(10,pevsText.getText());
-                pst.setString(11, clas);
-                pst.setString(12, rolll);
+                pst.setString(11, jTextField1.getText());
+                pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                pst.setString(13, clas);
+                pst.setString(14, rolll);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "saved");
             }
             else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")){
-                pst=con.prepareStatement("insert into resulte5th6th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,evs,socialscience,peng,phindi,pmath,pscience,pevs,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, name);
-                pst.setString(2, clas);
-                pst.setString(3, rolll);
-                pst.setString(4,addh);
-                pst.setString(5,engText.getText());
-                pst.setString(6, hindiText.getText());
-                pst.setString(7,matheText.getText());
-                pst.setString(8,sText.getText());
-                pst.setString(9,evsText.getText());
-                pst.setString(10, ssText.getText());
-                pst.setString(11, pengText.getText());
-                pst.setString(12, phindiText.getText());
-                pst.setString(13,pmatheText.getText());
-                pst.setString(14,psText.getText());
-                pst.setString(15,pevsText.getText());
-                pst.setString(16,pssText.getText());
+               
+                pst=con.prepareStatement("update resulte5th6th set Eng=?,hindi=?,Mathe=?,Science=?,evs=?,socialscience=?,peng=?,phindi=?,pmathe=?,pscience=?,pevs=?,psocialscience,total=?,resulte=? where class=? and rollno=?");
+                pst.setString(1,engText.getText());
+                pst.setString(2, hindiText.getText());
+                pst.setString(3,matheText.getText());
+                pst.setString(4,sText.getText());
+                pst.setString(5,evsText.getText());
+                pst.setString(6, ssText.getText());
+                pst.setString(7, pengText.getText());
+                pst.setString(8, phindiText.getText());
+                pst.setString(9,pmatheText.getText());
+                pst.setString(10,psText.getText());
+                pst.setString(11,pevsText.getText());
+                pst.setString(12,pssText.getText());
+                pst.setString(13, jTextField1.getText());
+                pst.setString(14, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                pst.setString(15, clas);
+                pst.setString(16, rolll);
 
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "saved");
             }
             else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")){
-                pst=con.prepareStatement("insert into resulte7th8th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,peng,phindi,pmath,pscience,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, name);
-                pst.setString(2, clas);
-                pst.setString(3, rolll);
-                pst.setString(4,addh);
-                pst.setString(5,engText.getText());
-                pst.setString(6, hindiText.getText());
-                pst.setString(7,matheText.getText());
-                pst.setString(8,sText.getText());
-                pst.setString(9,ssText.getText());
-                pst.setString(10, pengText.getText());
-                pst.setString(11, phindiText.getText());
-                pst.setString(12, pmatheText.getText());
-                pst.setString(13,psText.getText());
-                pst.setString(14,pssText.getText());
+                pst=con.prepareStatement("update resulte7th8th set Eng=?,hindi=?,Mathe=?,Science=?,socialscience=?,peng=?,phindi=?,pmathe=?,pscience=?,psocialscience=?,total=?,resulte=? where class=? and rollno=?");
+                pst.setString(1,engText.getText());
+                pst.setString(2, hindiText.getText());
+                pst.setString(3,matheText.getText());
+                pst.setString(4,sText.getText());
+                pst.setString(5,ssText.getText());
+                pst.setString(6, pengText.getText());
+                pst.setString(7, phindiText.getText());
+                pst.setString(8, pmatheText.getText());
+                pst.setString(9,psText.getText());
+                pst.setString(10,pssText.getText());
+                pst.setString(11, jTextField1.getText());
+                pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                pst.setString(13, clas);
+                pst.setString(14, rolll);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "saved");
             }
             else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")){
-                pst=con.prepareStatement("insert into resulte9th10th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,physicaleducation,peng,phindi,pmath,pscience,psocialscience,pphysicaleducation)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                pst.setString(1, name);
-                pst.setString(2, clas);
-                pst.setString(3, rolll);
-                pst.setString(4,addh);
-                pst.setString(5,engText.getText());
-                pst.setString(6, hindiText.getText());
-                pst.setString(7,matheText.getText());
-                pst.setString(8,sText.getText());
-                pst.setString(9,ssText.getText());
-                pst.setString(10,peText.getText());
-                pst.setString(11, pengText.getText());
-                pst.setString(12, phindiText.getText());
-                pst.setString(13, pmatheText.getText());
-                pst.setString(14,psText.getText());
-                pst.setString(15,pssText.getText());
-                pst.setString(16,ppeText.getText());
+                pst=con.prepareStatement("update resulte9th10th set Eng=?,hindi=?,Mathe=?,Science=?,socialscience=?,physicaleducation=?,peng=?,phindi=?,pmathe=?,pScience=?,psocialscience=?,pphysicaleducation=?,total=?,resulte=? where class=? and rollno=?");
+                
+                pst.setString(1,engText.getText());
+                pst.setString(2, hindiText.getText());
+                pst.setString(3,matheText.getText());
+                pst.setString(4,sText.getText());
+                pst.setString(5,ssText.getText());
+                pst.setString(6,peText.getText());
+                pst.setString(7, pengText.getText());
+                pst.setString(8, phindiText.getText());
+                pst.setString(9, pmatheText.getText());
+                pst.setString(10,psText.getText());
+                pst.setString(11,pssText.getText());
+                pst.setString(12,ppeText.getText());
+                pst.setString(13, jTextField1.getText());
+                pst.setString(14, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+                pst.setString(15, clas);
+                pst.setString(16, rolll);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "saved");
             }
@@ -722,6 +765,25 @@ public class Showresulte extends javax.swing.JFrame {
         hm.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int m1= Integer.parseInt(engText.getText());
+        int m2= Integer.parseInt(hindiText.getText());
+        int m3= Integer.parseInt(matheText.getText());
+        int m4= Integer.parseInt(artText.getText());
+        int m5= Integer.parseInt(gkText.getText());
+        int m6= Integer.parseInt(pengText.getText());
+        int m7= Integer.parseInt(phindiText.getText());
+        int m8= Integer.parseInt(pmatheText.getText());
+        int m9= Integer.parseInt(partText.getText());
+        int m10= Integer.parseInt(pgkText.getText());
+        int m11= Integer.parseInt(evsText.getText());
+        int m12= Integer.parseInt(pevsText.getText());
+
+        int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10+m11+m12 ;
+        jTextField1.setText(String.valueOf(result));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -767,7 +829,9 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JTextField hindiText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -780,6 +844,8 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -791,6 +857,7 @@ public class Showresulte extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField matheText;
     private javax.swing.JTextField pText;
     private javax.swing.JTextField partText;
