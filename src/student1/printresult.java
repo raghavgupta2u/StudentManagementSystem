@@ -11,57 +11,405 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 /**
  *
  * @author w
  */
 public class printresult extends javax.swing.JFrame {
-    String roll=Showresulte.roll;
+    String roll=Showresulte.rolll;
     String classs=Showresulte.clas;
-    String nm;
-    String mobile;
-    String roomnumber;
-    String bed;
-    String type;
-    String indate;
-    String outdate;
-    String price;
-    String days;
-    String amount;
-    String peymant;
-    /**
+    String studentname;
+    String mothername;
+    String fathername;
+    String English;
+    String Mathematics;
+    String Hindi;
+    String Art;
+    String Gk;
+    String Evs;
+    String physical;
+    String cse;
+    String Science;
+    String sst;
+    String punjabi;
+    
+    String pEnglish;
+    String pMathematics;
+    String pHindi;
+    String pArt;
+    String pGk;
+    String pEvs;
+    String pphysical;
+    String pcse;
+    String pScience;
+    String psst;
+    String ppunjabi;
+    
+    String total;
+    String dob;
+    String result;
+    byte img;
+   /**
      * Creates new form printresult
      */
     public printresult() {
         initComponents();
+        
+        //if( classs.equals("1st") || classs.equals("2nd")){
+        connect1();
+        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+        marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
+        marksheet.setText(marksheet.getText()+"Class:- "+classs+"\n");
+        marksheet.setText(marksheet.getText()+"Student Name:- "+studentname+"\n");
+        marksheet.setText(marksheet.getText()+"Mother Name:- "+mothername+"\n");
+        marksheet.setText(marksheet.getText()+"Father Name:- "+fathername+"\n");
+        marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |    "+pArt+"                                         |                 |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |    "+pGk+"                                         |                 |\n");
+        marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
+   // }
+        /*else if (classs.equals("3rd") || classs.equals("4th")){
+           connect2();
+        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+        marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
+        marksheet.setText(marksheet.getText()+"Class:- "+classs+"\n");
+        marksheet.setText(marksheet.getText()+"Student Name:- "+studentname+"\n");
+        marksheet.setText(marksheet.getText()+"Mother Name:- "+mothername+"\n");
+        marksheet.setText(marksheet.getText()+"Father Name:- "+fathername+"\n");
+        marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+        marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        }
+        else if (classs.equals("5th") || classs.equals("6th")){
+           connect3();
+        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+        marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
+        marksheet.setText(marksheet.getText()+"Class:- "+classs+"\n");
+        marksheet.setText(marksheet.getText()+"Student Name:- "+studentname+"\n");
+        marksheet.setText(marksheet.getText()+"Mother Name:- "+mothername+"\n");
+        marksheet.setText(marksheet.getText()+"Father Name:- "+fathername+"\n");
+        marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+        marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        }
+        else if (classs.equals("7th") || classs.equals("8th")){
+           connect4();
+        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+        marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
+        marksheet.setText(marksheet.getText()+"Class:- "+classs+"\n");
+        marksheet.setText(marksheet.getText()+"Student Name:- "+studentname+"\n");
+        marksheet.setText(marksheet.getText()+"Mother Name:- "+mothername+"\n");
+        marksheet.setText(marksheet.getText()+"Father Name:- "+fathername+"\n");
+        marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+        marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        }
+        else if (classs.equals("9th") || classs.equals("10th")){
+           connect5();
+        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+        marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
+        marksheet.setText(marksheet.getText()+"Class:- "+classs+"\n");
+        marksheet.setText(marksheet.getText()+"Student Name:- "+studentname+"\n");
+        marksheet.setText(marksheet.getText()+"Mother Name:- "+mothername+"\n");
+        marksheet.setText(marksheet.getText()+"Father Name:- "+fathername+"\n");
+        marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+        marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"\n");
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        }*/
     }
  
-    public void connect(){
+    public void connect1(){
         PreparedStatement pst;
         ResultSet rs;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotels","root","123456");
-            pst=con.prepareStatement("select * from resulte1st2nd where rollno=? and class=?");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from resulte1st2nd where rollno=? AND class=?");
             pst.setString(1,roll);
             pst.setString(2,classs);
             
             rs=pst.executeQuery();
             if(rs.next()){
-                nm=rs.getString("customername");
-                mobile=rs.getString("mobile");
-                roomnumber=rs.getString("Roomnumber");
-                bed=rs.getString("bedtype");
-                type=rs.getString("Roomtype");
-                indate=rs.getString("checkin");
-                price=rs.getString("Price");
-                
-   
+                studentname=rs.getString("name");
+                English=rs.getString("Eng");
+                Hindi=rs.getString("hindi");
+                Mathematics=rs.getString("Math");
+                Art=rs.getString("Art");
+                Gk=rs.getString("GK");
+                pEnglish=rs.getString("peng");
+                pHindi=rs.getString("phindi");
+                pMathematics=rs.getString("pmath");
+                pArt=rs.getString("part");
+                pGk=rs.getString("pgk");
             }
         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from student where rollno=? and class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                fathername=rs.getString("fathername");
+                mothername=rs.getString("mothername");
+                dob=rs.getString("dob");
+                img =rs.getByte("img");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void connect2(){
+        PreparedStatement pst;
+        ResultSet rs;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from resulte3rd4th where rollno=? AND class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            
+            rs=pst.executeQuery();
+            if(rs.next()){
+                studentname=rs.getString("name");
+                English=rs.getString("Eng");
+                Hindi=rs.getString("hindi");
+                Mathematics=rs.getString("Math");
+                Gk=rs.getString("gk");
+                Evs=rs.getString("evs");
+                pEnglish=rs.getString("peng");
+                pHindi=rs.getString("phindi");
+                pMathematics=rs.getString("pmath");
+                pGk=rs.getString("pgk");
+                pEvs=rs.getString("pevs");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from student where rollno=? and class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                fathername=rs.getString("fathername");
+                mothername=rs.getString("mothername");
+                dob=rs.getString("dob");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void connect3(){
+        PreparedStatement pst;
+        ResultSet rs;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from resulte5th6th where rollno=? AND class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            
+            rs=pst.executeQuery();
+            if(rs.next()){
+                studentname=rs.getString("name");
+                English=rs.getString("Eng");
+                Hindi=rs.getString("hindi");
+                Mathematics=rs.getString("Math");
+                Science=rs.getString("Science");
+                Evs=rs.getString("evs");
+                psst=rs.getString("socialscience");
+                pEnglish=rs.getString("peng");
+                pHindi=rs.getString("phindi");
+                pMathematics=rs.getString("pmath");
+                pScience=rs.getString("pScience");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from student where rollno=? and class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                fathername=rs.getString("fathername");
+                mothername=rs.getString("mothername");
+                dob=rs.getString("dob");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void connect4(){
+        PreparedStatement pst;
+        ResultSet rs;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from resulte7th8th where rollno=? AND class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            
+            rs=pst.executeQuery();
+            if(rs.next()){
+                studentname=rs.getString("name");
+                English=rs.getString("Eng");
+                Hindi=rs.getString("hindi");
+                Mathematics=rs.getString("Math");
+                Science=rs.getString("Science");
+                sst=rs.getString("socialscience");
+                pEnglish=rs.getString("peng");
+                pHindi=rs.getString("phindi");
+                pMathematics=rs.getString("pmath");
+                pScience=rs.getString("pscience");
+                psst=rs.getString("psocialscience");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from student where rollno=? and class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                fathername=rs.getString("fathername");
+                mothername=rs.getString("mothername");
+                dob=rs.getString("dob");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void connect5(){
+        PreparedStatement pst;
+        ResultSet rs;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from resulte9th10th where rollno=? AND class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            
+            rs=pst.executeQuery();
+            if(rs.next()){
+                studentname=rs.getString("name");
+                English=rs.getString("Eng");
+                Hindi=rs.getString("hindi");
+                Mathematics=rs.getString("Math");
+                Science=rs.getString("Science");
+                sst=rs.getString("socialscience");
+                physical=rs.getString("physicaleducation");
+                pHindi=rs.getString("phindi");
+                pMathematics=rs.getString("pmath");
+                pphysical=rs.getString("pphysicaleducation");
+                pEnglish=rs.getString("peng");
+                psst=rs.getString("psocialscience");
+                pScience=rs.getString("pscience");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("select * from student where rollno=? and class=?");
+            pst.setString(1,roll);
+            pst.setString(2,classs);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                fathername=rs.getString("fathername");
+                mothername=rs.getString("mothername");
+                dob=rs.getString("dob");
+            }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,7 +423,7 @@ public class printresult extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         PrintBill = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtbill = new javax.swing.JTextArea();
+        marksheet = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,9 +439,9 @@ public class printresult extends javax.swing.JFrame {
             }
         });
 
-        txtbill.setColumns(20);
-        txtbill.setRows(5);
-        jScrollPane1.setViewportView(txtbill);
+        marksheet.setColumns(20);
+        marksheet.setRows(5);
+        jScrollPane1.setViewportView(marksheet);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/left-arrow.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -107,16 +455,16 @@ public class printresult extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(491, 491, 491)
-                            .addComponent(PrintBill))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(21, 21, 21)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(PrintBill)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,16 +473,16 @@ public class printresult extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PrintBill)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +494,7 @@ public class printresult extends javax.swing.JFrame {
 
     private void PrintBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintBillActionPerformed
         try {
-            txtbill.print();        // TODO add your handling code here:
+            marksheet.print();        // TODO add your handling code here:
         } catch (PrinterException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
         }      // TODO add your handling code here:
@@ -196,10 +544,9 @@ public class printresult extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PrintBill;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtbill;
+    private javax.swing.JTextArea marksheet;
     // End of variables declaration//GEN-END:variables
 }

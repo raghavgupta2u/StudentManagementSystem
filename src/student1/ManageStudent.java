@@ -339,6 +339,15 @@ public class ManageStudent extends javax.swing.JFrame {
 
         DeleteRecord.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         DeleteRecord.setText("DELETE");
+        DeleteRecord.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                DeleteRecordAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         DeleteRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteRecordActionPerformed(evt);
@@ -940,97 +949,129 @@ else{
         SimpleDateFormat sf = new SimpleDateFormat("yyyy/MM/dd");
         
             try {
+             
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
-                pst=con.prepareStatement("DELETE FROM student where aadharnumber=?");
-                pst.setString(1,aadhar.getText());
-                pst.executeUpdate();
-                int yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-                if(yes==JOptionPane.YES_OPTION)
-                JOptionPane.showMessageDialog(this, "deleted successfull");
+             
                 
-         if(cl.getSelectedItem().equals("1st")){   
+         if(cl.getSelectedItem().equals("1st")){ 
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 1st where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                
+                pst=con.prepareStatement("DELETE FROM resulte1st2nd where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+                
+              
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");
          }
          else if(cl.getSelectedItem().equals("2nd")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 2nd where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-                if(yes==JOptionPane.YES_OPTION)
+                
+                pst=con.prepareStatement("DELETE FROM resulte1st2nd where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+               
+                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
 
          else if(cl.getSelectedItem().equals("3rd")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 3rd where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                
+                pst=con.prepareStatement("DELETE FROM resulte3rd4th where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+              
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
          else if(cl.getSelectedItem().equals("4th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 4th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                
+                pst=con.prepareStatement("DELETE FROM resulte4th5th where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+              
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
          else if(cl.getSelectedItem().equals("5th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+             
                 pst=con.prepareStatement("DELETE FROM 5th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+                
+                pst=con.prepareStatement("DELETE FROM resulte4th5th where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+                
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");          
          }
          else if(cl.getSelectedItem().equals("6th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 6th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+               
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
          else if(cl.getSelectedItem().equals("7th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 7th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+             
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
          else if(cl.getSelectedItem().equals("8th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 8th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+               
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
          else if(cl.getSelectedItem().equals("9th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 9th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+          
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          } 
          else if(cl.getSelectedItem().equals("10th")){
+             int  yes=JOptionPane.showConfirmDialog(this,"Are you sure? it will allso delete its result of student ","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 pst=con.prepareStatement("DELETE FROM 10th where aadharnumber=?");
                 pst.setString(1,aadhar.getText());
                 pst.executeUpdate();
-                yes=JOptionPane.showConfirmDialog(this,"Are you sure?","DELETE",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+              
                 if(yes==JOptionPane.YES_OPTION)
                 JOptionPane.showMessageDialog(this, "deleted successfull");            
          }
-
+                pst=con.prepareStatement("DELETE FROM student where aadharnumber=?");
+                pst.setString(1,aadhar.getText());
+                pst.executeUpdate();
+               
+               
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1039,24 +1080,8 @@ else{
 
     private void search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search1ActionPerformed
         // TODO add your handling code here:
-        stdname.setText("");
-        fathername.setText("");
-        address.setText("");
-        mothername.setText("");
-        fatherocc.setText("");
-        contactno.setText("");
-        email.setText("");
-        pin.setText("");
-        aadhar.setText("");
-        gender.setSelectedIndex(0);
-        religion.setSelectedIndex(0);
-        nationality.setSelectedIndex(0);
-        stt.setSelectedIndex(0);
-        cit.setSelectedIndex(0);
-        dob.setDate(null);
-        lbl_img.setIcon(null);
-        cit.removeAllItems();
        
+        
         PreparedStatement pst = null;
         Statement st = null;
         ResultSet rs = null;
@@ -1082,7 +1107,6 @@ else{
                 gender.setSelectedItem(rs.getString("gender"));
                 religion.setSelectedItem(rs.getString("religion"));
                 nationality.setSelectedItem(rs.getString("nationality"));
-               
                 stt.setSelectedItem(rs.getString("state"));
                 ((JTextField)dob.getDateEditor().getUiComponent()).setText(rs.getString("dob"));
                 cit.addItem(rs.getString("city"));
@@ -1094,14 +1118,35 @@ else{
                  lbl_img.setIcon(imageIcon);
           
                 }
-            else{
-                 JOptionPane.showMessageDialog(this, "record not found");
+           else{
+                 JOptionPane.showMessageDialog(this, "Record not found");
                  
+                lbl_img.setIcon(null);
+                cit.removeAllItems();
+                stdname.setText("");
+                fathername.setText("");
+                address.setText("");
+                mothername.setText("");
+                fatherocc.setText("");
+                contactno.setText("");
+                email.setText("");
+                pin.setText("");
+                aadhar.setText("");
+                gender.setSelectedIndex(0);
+                religion.setSelectedIndex(0);
+                nationality.setSelectedIndex(0);
+                stt.setSelectedIndex(0);
+                cit.setSelectedIndex(0);
+                dob.setDate(null);
+                rollno.setText("");
+                cl.setSelectedIndex(0);
+                
             }
             
-            } catch (SQLException | ClassNotFoundException ex) {
-                //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
-                
+            } 
+            
+            catch (SQLException | ClassNotFoundException ex) {
+        
             }
           
     }//GEN-LAST:event_search1ActionPerformed
@@ -1219,6 +1264,10 @@ else{
             JOptionPane.showMessageDialog(null,e);
 }      
     }//GEN-LAST:event_updatephotoActionPerformed
+
+    private void DeleteRecordAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_DeleteRecordAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteRecordAncestorAdded
 
     /**
      * @param args the command line arguments

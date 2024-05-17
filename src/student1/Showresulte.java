@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 public class Showresulte extends javax.swing.JFrame {
  static String name;
  static String clas;
- static String roll;
+ static String rolll;
  static String addh;
     /**
      * Creates new form Showresulte
@@ -306,18 +306,15 @@ public class Showresulte extends javax.swing.JFrame {
         java.sql.Statement st=null;
         ResultSet rs=null;
         java.sql.Connection con=null;
+        
+         name= jTextField1.getText() ;
+         clas = cl.getItemAt(cl.getSelectedIndex()) ;
+         rolll= rollno.getText() ;
+         addh= jTextField4.getText() ;
+
        
         if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
-            /*engText.setEditable(true);
-            pengText.setEditable(true);
-            hindiText.setEditable(true);
-            phindiText.setEditable(true);
-            artText.setEditable(true);
-            partText.setEditable(true);
-            matheText.setEditable(true);
-            pmatheText.setEditable(true);
-            gkText.setEditable(true);
-            pgkText.setEditable(true);*/
+           
             evsText.setEditable(false);
             pevsText.setEditable(false);
             peText.setEditable(false);
@@ -330,15 +327,12 @@ public class Showresulte extends javax.swing.JFrame {
             pssText.setEditable(false);
             pText.setEditable(false);
             ppText.setEditable(false);
-            
-            
-       
             try {
                
                   Class.forName("com.mysql.cj.jdbc.Driver");
                   con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
                   pst = con.prepareStatement("Select * from resulte1st2nd where class=? AND rollno=?");
-                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
+                  pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
                   pst.setString(2, rollno.getText());
                 
                 rs = pst.executeQuery();
@@ -366,18 +360,9 @@ public class Showresulte extends javax.swing.JFrame {
           
         }
         else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")) {
-            engText.setEditable(true);
-            pengText.setEditable(true);
-            hindiText.setEditable(true);
-            phindiText.setEditable(true);
+            
             artText.setEditable(false);
             partText.setEditable(false);
-            matheText.setEditable(true);
-            pmatheText.setEditable(true);
-            gkText.setEditable(true);
-            pgkText.setEditable(true);
-            evsText.setEditable(true);
-            pevsText.setEditable(true);
             peText.setEditable(false);
             ppeText.setEditable(false);
             csText.setEditable(false);
@@ -388,42 +373,87 @@ public class Showresulte extends javax.swing.JFrame {
             pssText.setEditable(false);
             pText.setEditable(false);
             ppText.setEditable(false);
+            
+            try {
+               
+                  Class.forName("com.mysql.cj.jdbc.Driver");
+                  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
+                  pst = con.prepareStatement("Select * from resulte3rd4th where class=? AND rollno=?");
+                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
+                  pst.setString(2, rollno.getText());
+                
+                rs = pst.executeQuery();
+                if (rs.next()){
+                 jTextField1.setText(rs.getString("name"));
+                 jTextField2.setText(rs.getString("class"));
+                 jTextField3.setText(rs.getString("rollno"));
+                 jTextField4.setText(rs.getString("aadharnumber"));
+                 engText.setText(rs.getString("Eng"));
+                 hindiText.setText(rs.getString("hindi"));
+                 matheText.setText(rs.getString("Math"));
+                 gkText.setText(rs.getString("GK"));
+                 evsText.setText(rs.getString("evs"));
+                 pengText.setText(rs.getString("peng"));
+                 phindiText.setText(rs.getString("phindi"));
+                 pmatheText.setText(rs.getString("pmath"));
+                 pgkText.setText(rs.getString("pgk"));
+                 pevsText.setText(rs.getString("pevs"));
+                }
+           
+            } catch (SQLException | ClassNotFoundException ex) {
+                //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "result not found");
+            }
 
         }
         else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")) {
-            engText.setEditable(true);
-            pengText.setEditable(true);
-            hindiText.setEditable(true);
-            phindiText.setEditable(true);
+            
             artText.setEditable(false);
             partText.setEditable(false);
-            matheText.setEditable(true);
-            pmatheText.setEditable(true);
             gkText.setEditable(false);
             pgkText.setEditable(false);
-            evsText.setEditable(true);
-            pevsText.setEditable(true);
             peText.setEditable(false);
             ppeText.setEditable(false);
             csText.setEditable(false);
             pcsText.setEditable(false);
-            sText.setEditable(true);
-            psText.setEditable(true);
-            ssText.setEditable(true);
-            pssText.setEditable(true);
             pText.setEditable(false);
             ppText.setEditable(false);
+            
+            try {
+               
+                  Class.forName("com.mysql.cj.jdbc.Driver");
+                  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
+                  pst = con.prepareStatement("Select * from resulte5th6th where class=? AND rollno=?");
+                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
+                  pst.setString(2, rollno.getText());
+                
+                rs = pst.executeQuery();
+                if (rs.next()){
+                 jTextField1.setText(rs.getString("name"));
+                 jTextField2.setText(rs.getString("class"));
+                 jTextField3.setText(rs.getString("rollno"));
+                 jTextField4.setText(rs.getString("aadharnumber"));
+                 engText.setText(rs.getString("Eng"));
+                 hindiText.setText(rs.getString("hindi"));
+                 matheText.setText(rs.getString("Math"));
+                 sText.setText(rs.getString("Science"));
+                 ssText.setText(rs.getString("socialscience"));
+                 pengText.setText(rs.getString("peng"));
+                 phindiText.setText(rs.getString("phindi"));
+                 pmatheText.setText(rs.getString("pmath"));
+                 psText.setText(rs.getString("pscience"));
+                 pssText.setText(rs.getString("psocialscience"));
+                }
+           
+            } catch (SQLException | ClassNotFoundException ex) {
+                //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "result not found");
+            }
 
         }
         else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")) {
-            engText.setEditable(true);
-            pengText.setEditable(true);
-            hindiText.setEditable(true);
-            phindiText.setEditable(true);
             artText.setEditable(false);
             partText.setEditable(false);
-            matheText.setEditable(true);
-            pmatheText.setEditable(true);
             gkText.setEditable(false);
             pgkText.setEditable(false);
             evsText.setEditable(false);
@@ -432,38 +462,84 @@ public class Showresulte extends javax.swing.JFrame {
             ppeText.setEditable(false);
             csText.setEditable(false);
             pcsText.setEditable(false);
-            sText.setEditable(true);
-            psText.setEditable(true);
-            ssText.setEditable(true);
-            pssText.setEditable(true);
             pText.setEditable(false);
             ppText.setEditable(false);
-
+           
+            try {
+               
+                  Class.forName("com.mysql.cj.jdbc.Driver");
+                  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
+                  pst = con.prepareStatement("Select * from resulte7th8th where class=? AND rollno=?");
+                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
+                  pst.setString(2, rollno.getText());
+                
+                rs = pst.executeQuery();
+                if (rs.next()){
+                 jTextField1.setText(rs.getString("name"));
+                 jTextField2.setText(rs.getString("class"));
+                 jTextField3.setText(rs.getString("rollno"));
+                 jTextField4.setText(rs.getString("aadharnumber"));
+                 engText.setText(rs.getString("Eng"));
+                 hindiText.setText(rs.getString("hindi"));
+                 matheText.setText(rs.getString("Math"));
+                 sText.setText(rs.getString("Science"));
+                 ssText.setText(rs.getString("socialscience"));
+                 pengText.setText(rs.getString("peng"));
+                 phindiText.setText(rs.getString("phindi"));
+                 pmatheText.setText(rs.getString("pmath"));
+                 psText.setText(rs.getString("pscience"));
+                 pssText.setText(rs.getString("psocialscience"));
+                }
+           
+            } catch (SQLException | ClassNotFoundException ex) {
+                //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "result not found");
+            }
         }
         else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")) {
-            engText.setEditable(true);
-            pengText.setEditable(true);
-            hindiText.setEditable(true);
-            phindiText.setEditable(true);
             artText.setEditable(false);
             partText.setEditable(false);
-            matheText.setEditable(true);
-            pmatheText.setEditable(true);
             gkText.setEditable(false);
             pgkText.setEditable(false);
             evsText.setEditable(false);
             pevsText.setEditable(false);
-            peText.setEditable(true);
-            ppeText.setEditable(true);
             csText.setEditable(false);
             pcsText.setEditable(false);
-            sText.setEditable(true);
-            psText.setEditable(true);
-            ssText.setEditable(true);
-            pssText.setEditable(true);
             pText.setEditable(false);
             ppText.setEditable(false);
 
+             try {
+               
+                  Class.forName("com.mysql.cj.jdbc.Driver");
+                  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo", "root", "123456");
+                  pst = con.prepareStatement("Select * from resulte9th10th where class=? AND rollno=?");
+                   pst.setString(1, cl.getItemAt(cl.getSelectedIndex()));
+                  pst.setString(2, rollno.getText());
+                
+                rs = pst.executeQuery();
+                if (rs.next()){
+                 jTextField1.setText(rs.getString("name"));
+                 jTextField2.setText(rs.getString("class"));
+                 jTextField3.setText(rs.getString("rollno"));
+                 jTextField4.setText(rs.getString("aadharnumber"));
+                 engText.setText(rs.getString("Eng"));
+                 hindiText.setText(rs.getString("hindi"));
+                 matheText.setText(rs.getString("Math"));
+                 sText.setText(rs.getString("Science"));
+                 ssText.setText(rs.getString("socialscience"));
+                 peText.setText(rs.getString("physicaleducation"));
+                 pengText.setText(rs.getString("peng"));
+                 phindiText.setText(rs.getString("phindi"));
+                 pmatheText.setText(rs.getString("pmath"));
+                 psText.setText(rs.getString("pscience"));
+                 pssText.setText(rs.getString("psocialscience"));
+                 ppeText.setText(rs.getString("pphysicaledcation"));
+                }
+           
+            } catch (SQLException | ClassNotFoundException ex) {
+                //Logger.getLogger(ManageStudent.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "result not found");
+            }
         }
     }//GEN-LAST:event_searchActionPerformed
 
@@ -484,15 +560,6 @@ public class Showresulte extends javax.swing.JFrame {
         Statement st=null;
         PreparedStatement pst=null;
 
-         name= jTextField1.getText() ;
-         clas= jTextField2.getText() ;
-         roll= jTextField3.getText() ;
-         addh= jTextField4.getText() ;
-
-        // System.out.print(name);
-        // System.out.print(clas);
-        // System.out.print(roll);
-        // System.out.print(addh);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -511,7 +578,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(9,partText.getText());
                 pst.setString(10,pgkText.getText());
                 pst.setString(11, clas);
-                pst.setString(12, roll);
+                pst.setString(12, rolll);
                 
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "update");
@@ -529,7 +596,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(9,pgkText.getText());
                 pst.setString(10,pevsText.getText());
                 pst.setString(11, clas);
-                pst.setString(12, roll);
+                pst.setString(12, rolll);
                 pst.executeUpdate();
                 JOptionPane.showMessageDialog(this, "saved");
             }
@@ -537,7 +604,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst=con.prepareStatement("insert into resulte5th6th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,evs,socialscience,peng,phindi,pmath,pscience,pevs,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 pst.setString(1, name);
                 pst.setString(2, clas);
-                pst.setString(3, roll);
+                pst.setString(3, rolll);
                 pst.setString(4,addh);
                 pst.setString(5,engText.getText());
                 pst.setString(6, hindiText.getText());
@@ -559,7 +626,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst=con.prepareStatement("insert into resulte7th8th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,peng,phindi,pmath,pscience,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 pst.setString(1, name);
                 pst.setString(2, clas);
-                pst.setString(3, roll);
+                pst.setString(3, rolll);
                 pst.setString(4,addh);
                 pst.setString(5,engText.getText());
                 pst.setString(6, hindiText.getText());
@@ -578,7 +645,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst=con.prepareStatement("insert into resulte9th10th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,physicaleducation,peng,phindi,pmath,pscience,psocialscience,pphysicaleducation)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
                 pst.setString(1, name);
                 pst.setString(2, clas);
-                pst.setString(3, roll);
+                pst.setString(3, rolll);
                 pst.setString(4,addh);
                 pst.setString(5,engText.getText());
                 pst.setString(6, hindiText.getText());
@@ -612,20 +679,38 @@ public class Showresulte extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-       // DefaultTableModel RecordTable= (DefaultTableModel) jTable1.getModel();
-       // RecordTable.setRowCount(0);
-       
-        jTextField1.getText() ;
-        jTextField2.getText() ;
-        jTextField3.getText() ;
-        jTextField4.getText() ;
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
         rollno.setText(null);
         cl.setSelectedIndex(0);
+        engText.setText(null);
+        pengText.setText(null);
+        hindiText.setText(null);
+        phindiText.setText(null);
+        matheText.setText(null);
+        pmatheText.setText(null);
+        evsText.setText(null);
+        pevsText.setText(null);
+        gkText.setText(null);
+        artText.setText(null);
+        partText.setText(null);
+        pgkText.setText(null);
+        peText.setText(null);
+        pevsText.setText(null);
+        csText.setText(null);
+        pcsText.setText(null);
+        sText.setText(null);
+        psText.setText(null);
+        ssText.setText(null);
+        pssText.setText(null);
+        pText.setText(null);
+        ppText.setText(null);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
         printresult pt  = new printresult();
         pt.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

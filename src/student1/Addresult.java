@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author w
  */
 public class Addresult extends javax.swing.JFrame {
-
+           
     /**
      * Creates new form Addresult
      */
@@ -89,6 +89,11 @@ public class Addresult extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -264,6 +269,26 @@ public class Addresult extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 40, -1));
 
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Total");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 550, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 580, 180, -1));
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Result");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PASS", "1st", "2nd", "3rd" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, 190, -1));
+
+        jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 580, 60, -1));
+
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/rg (1).jpg"))); // NOI18N
         jLabel15.setText("jLabel15");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 700));
@@ -340,17 +365,7 @@ public class Addresult extends javax.swing.JFrame {
             }
          } catch (ClassNotFoundException | SQLException ex) {} 
        
-         engText.setEditable(true);
-         pengText.setEditable(true);
-         hindiText.setEditable(true);
-         phindiText.setEditable(true);
-         artText.setEditable(true);
-         partText.setEditable(true);
-         matheText.setEditable(true);
-         pmatheText.setEditable(true);
-         gkText.setEditable(true);
-         pgkText.setEditable(true);
-         evsText.setEditable(false);
+        evsText.setEditable(false);
          pevsText.setEditable(false);
          peText.setEditable(false);
          ppeText.setEditable(false);
@@ -366,18 +381,22 @@ public class Addresult extends javax.swing.JFrame {
           
    }  
    else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")) {
-          engText.setEditable(true);
-         pengText.setEditable(true);
-         hindiText.setEditable(true);
-         phindiText.setEditable(true);
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("Select * from resulte3rd4th where class=? AND rollno=?");
+            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
+            pst.setString(2, rollno.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                    int yes=JOptionPane.showConfirmDialog(this,"Resulte is allready available.\nDo you want to Update Resulte?","update",JOptionPane.YES_NO_OPTION);
+                if(JOptionPane.YES_OPTION==yes)
+                new Showresulte().setVisible(true);
+            }
+         } catch (ClassNotFoundException | SQLException ex) {} 
+       
          artText.setEditable(false);
          partText.setEditable(false);
-         matheText.setEditable(true);
-         pmatheText.setEditable(true);
-         gkText.setEditable(true);
-         pgkText.setEditable(true);
-         evsText.setEditable(true);
-         pevsText.setEditable(true);
          peText.setEditable(false);
          ppeText.setEditable(false);
          csText.setEditable(false);
@@ -391,39 +410,49 @@ public class Addresult extends javax.swing.JFrame {
    
         }
    else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")) {
-         engText.setEditable(true);
-         pengText.setEditable(true);
-         hindiText.setEditable(true);
-         phindiText.setEditable(true);
+       try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("Select * from resulte5th6th where class=? AND rollno=?");
+            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
+            pst.setString(2, rollno.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                    int yes=JOptionPane.showConfirmDialog(this,"Resulte is allready available.\nDo you want to Update Resulte?","update",JOptionPane.YES_NO_OPTION);
+                if(JOptionPane.YES_OPTION==yes)
+                new Showresulte().setVisible(true);
+            }
+         } catch (ClassNotFoundException | SQLException ex) {} 
+       
          artText.setEditable(false);
          partText.setEditable(false);
-         matheText.setEditable(true);
-         pmatheText.setEditable(true);
          gkText.setEditable(false);
          pgkText.setEditable(false);
-         evsText.setEditable(true);
-         pevsText.setEditable(true);
          peText.setEditable(false);
          ppeText.setEditable(false);
          csText.setEditable(false);
          pcsText.setEditable(false);
-         sText.setEditable(true);
-         psText.setEditable(true);
-         ssText.setEditable(true);
-         pssText.setEditable(true);
          pText.setEditable(false);
          ppText.setEditable(false);
     
         }
    else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")) {
-          engText.setEditable(true);
-         pengText.setEditable(true);
-         hindiText.setEditable(true);
-         phindiText.setEditable(true);
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("Select * from resulte7th8th where class=? AND rollno=?");
+            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
+            pst.setString(2, rollno.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                    int yes=JOptionPane.showConfirmDialog(this,"Resulte is allready available.\nDo you want to Update Resulte?","update",JOptionPane.YES_NO_OPTION);
+                if(JOptionPane.YES_OPTION==yes)
+                new Showresulte().setVisible(true);
+            }
+         } catch (ClassNotFoundException | SQLException ex) {} 
+       
          artText.setEditable(false);
          partText.setEditable(false);
-         matheText.setEditable(true);
-         pmatheText.setEditable(true);
          gkText.setEditable(false);
          pgkText.setEditable(false);
          evsText.setEditable(false);
@@ -432,35 +461,34 @@ public class Addresult extends javax.swing.JFrame {
          ppeText.setEditable(false);
          csText.setEditable(false);
          pcsText.setEditable(false);
-         sText.setEditable(true);
-         psText.setEditable(true);
-         ssText.setEditable(true);
-         pssText.setEditable(true);
          pText.setEditable(false);
          ppText.setEditable(false);
    
         }
    else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")) {
-         engText.setEditable(true);
-         pengText.setEditable(true);
-         hindiText.setEditable(true);
-         phindiText.setEditable(true);
+       try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
+            pst=con.prepareStatement("Select * from resulte9th10th where class=? AND rollno=?");
+            pst.setString(1,cl.getItemAt(cl.getSelectedIndex()));
+            pst.setString(2, rollno.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                    int yes=JOptionPane.showConfirmDialog(this,"Resulte is allready available.\nDo you want to Update Resulte?","update",JOptionPane.YES_NO_OPTION);
+                if(JOptionPane.YES_OPTION==yes)
+                new Showresulte().setVisible(true);
+            }
+         } catch (ClassNotFoundException | SQLException ex) {} 
+       
+        
          artText.setEditable(false);
          partText.setEditable(false);
-         matheText.setEditable(true);
-         pmatheText.setEditable(true);
          gkText.setEditable(false);
          pgkText.setEditable(false);
          evsText.setEditable(false);
          pevsText.setEditable(false);
-         peText.setEditable(true);
-         ppeText.setEditable(true);
          csText.setEditable(false);
          pcsText.setEditable(false);
-         sText.setEditable(true);
-         psText.setEditable(true);
-         ssText.setEditable(true);
-         pssText.setEditable(true);
          pText.setEditable(false);
          ppText.setEditable(false);
    
@@ -480,24 +508,20 @@ public class Addresult extends javax.swing.JFrame {
         // TODO add your handling code here:
         Statement st=null;
         PreparedStatement pst=null;
+          
         
         String name= jTable1.getValueAt(0, 0).toString() ;
         String clas= jTable1.getValueAt(0, 1).toString() ;
         String roll= jTable1.getValueAt(0, 2).toString() ;
         String addh= jTable1.getValueAt(0, 3).toString() ;
-        
-       // System.out.print(name);
-       // System.out.print(clas);
-       // System.out.print(roll);
-       // System.out.print(addh);
-        
-        
-         try {
+      
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/studentinfo","root","123456");
  
          if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
-          pst=con.prepareStatement("insert into resulte1st2nd(name,class,rollno,aadharnumber,Eng,hindi,Math,Art,GK,peng,phindi,pmath,part,pgk)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+             
+          pst=con.prepareStatement("insert into resulte1st2nd(name,class,rollno,aadharnumber,Eng,hindi,Math,Art,GK,peng,phindi,pmath,part,pgk,total,resulte)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           pst.setString(1, name);
             pst.setString(2, clas);
             pst.setString(3, roll);
@@ -512,12 +536,15 @@ public class Addresult extends javax.swing.JFrame {
             pst.setString(12, pmatheText.getText());
             pst.setString(13,partText.getText());
             pst.setString(14,pgkText.getText());
+            pst.setString(15,jTextField1.getText());
+            pst.setString(16,jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
+            
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "saved");
          }
          else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
-            pst=con.prepareStatement("insert into resulte3rd4th(name,class,rollno,aadharnumber,Eng,hindi,Math,GK,evs,peng,phindi,pmath,pgk,pevs)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          pst.setString(1, name);
+            pst=con.prepareStatement("insert into resulte3rd4th(name,class,rollno,aadharnumber,Eng,hindi,Math,GK,evs,peng,phindi,pmath,pgk,pevs,total,resulte)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pst.setString(1, name);
             pst.setString(2, clas);
             pst.setString(3, roll);
             pst.setString(4,addh);
@@ -531,11 +558,15 @@ public class Addresult extends javax.swing.JFrame {
             pst.setString(12, pmatheText.getText());
             pst.setString(13,pgkText.getText());
             pst.setString(14,pevsText.getText());
+             pst.setString(15,jTextField1.getText());
+            pst.setString(16,jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "saved");  
-         }
+            JOptionPane.showMessageDialog(this, "saved"); 
+            
+           
+         } 
          else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")){
-              pst=con.prepareStatement("insert into resulte5th6th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,evs,socialscience,peng,phindi,pmath,pscience,pevs,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+              pst=con.prepareStatement("insert into resulte5th6th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,evs,socialscience,peng,phindi,pmath,pscience,pevs,psocialscience,total,resulte)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           pst.setString(1, name);
             pst.setString(2, clas);
             pst.setString(3, roll);
@@ -552,12 +583,14 @@ public class Addresult extends javax.swing.JFrame {
             pst.setString(14,psText.getText());
             pst.setString(15,pevsText.getText());
             pst.setString(16,pssText.getText());
+            pst.setString(17,jTextField1.getText());
+            pst.setString(18,jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
             
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "saved");
          }
          else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")){
-              pst=con.prepareStatement("insert into resulte7th8th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,peng,phindi,pmath,pscience,psocialscience)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+              pst=con.prepareStatement("insert into resulte7th8th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,peng,phindi,pmath,pscience,psocialscience,total,resulte)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           pst.setString(1, name);
             pst.setString(2, clas);
             pst.setString(3, roll);
@@ -572,11 +605,13 @@ public class Addresult extends javax.swing.JFrame {
             pst.setString(12, pmatheText.getText());
             pst.setString(13,psText.getText());
             pst.setString(14,pssText.getText());
+            pst.setString(15,jTextField1.getText());
+            pst.setString(16,jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "saved");
          }
          else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")){
-              pst=con.prepareStatement("insert into resulte9th10th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,physicaleducation,peng,phindi,pmath,pscience,psocialscience,pphysicaleducation)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+              pst=con.prepareStatement("insert into resulte9th10th(name,class,rollno,aadharnumber,Eng,hindi,Math,Science,socialscience,physicaleducation,peng,phindi,pmath,pscience,psocialscience,pphysicaleducation,total,resulte)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           pst.setString(1, name);
             pst.setString(2, clas);
             pst.setString(3, roll);
@@ -592,16 +627,17 @@ public class Addresult extends javax.swing.JFrame {
             pst.setString(13, pmatheText.getText());
             pst.setString(14,psText.getText());
             pst.setString(15,pssText.getText());
-             pst.setString(16,ppeText.getText());
+            pst.setString(16,ppeText.getText());
+            pst.setString(17,jTextField1.getText());
+            pst.setString(18,jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "saved");
          } 
-         }    
-        catch (ClassNotFoundException | SQLException ex) {
+         } 
+    
+         catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-         
+        }    
     }//GEN-LAST:event_saveActionPerformed
 
     private void evsTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evsTextActionPerformed
@@ -614,6 +650,25 @@ public class Addresult extends javax.swing.JFrame {
         homepage hm = new homepage();
         hm.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+            int m1= Integer.parseInt(engText.getText());
+            int m2= Integer.parseInt(hindiText.getText());
+            int m3= Integer.parseInt(matheText.getText());
+            int m4= Integer.parseInt(artText.getText());
+            int m5= Integer.parseInt(gkText.getText());
+            int m6= Integer.parseInt(pengText.getText());
+            int m7= Integer.parseInt(phindiText.getText());
+            int m8= Integer.parseInt(pmatheText.getText());
+            int m9= Integer.parseInt(partText.getText());
+            int m10= Integer.parseInt(pgkText.getText());
+            int m11= Integer.parseInt(evsText.getText());
+            int m12= Integer.parseInt(pevsText.getText());
+            
+             int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10+m11+m12 ;
+            jTextField1.setText(String.valueOf(result)); 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -659,8 +714,10 @@ public class Addresult extends javax.swing.JFrame {
     private javax.swing.JTextField evsText;
     private javax.swing.JTextField gkText;
     private javax.swing.JTextField hindiText;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -668,6 +725,8 @@ public class Addresult extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -678,6 +737,7 @@ public class Addresult extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField matheText;
     private javax.swing.JTextField pText;
     private javax.swing.JTextField partText;

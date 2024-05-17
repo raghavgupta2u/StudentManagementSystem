@@ -527,6 +527,7 @@
             <Property name="text" type="java.lang.String" value="DELETE"/>
           </Properties>
           <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="DeleteRecordAncestorAdded"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteRecordActionPerformed"/>
           </Events>
           <Constraints>

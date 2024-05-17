@@ -226,10 +226,14 @@ if(cl1.getSelectedItem().equals("1st")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+            pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
             JOptionPane.showMessageDialog(this, "Promoted");
             
 }
@@ -245,9 +249,12 @@ else if(cl1.getSelectedItem().equals("2nd")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+            pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -264,9 +271,12 @@ else if(cl1.getSelectedItem().equals("3rd")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+            pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -283,9 +293,12 @@ else if(cl1.getSelectedItem().equals("4th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+            pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -302,9 +315,12 @@ else if(cl1.getSelectedItem().equals("5th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+              pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -321,9 +337,12 @@ else if(cl1.getSelectedItem().equals("6th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+              pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -340,9 +359,12 @@ else if(cl1.getSelectedItem().equals("7th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+              pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -359,9 +381,12 @@ else if(cl1.getSelectedItem().equals("8th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+              pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -378,9 +403,12 @@ else if(cl1.getSelectedItem().equals("9th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+              pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
@@ -397,9 +425,12 @@ else if(cl1.getSelectedItem().equals("10th")){
             pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
             pst.executeUpdate();
            
-            pst=con.prepareStatement("update student set class=? where aadharnumber=?");
-            pst.setString(1, cl1.getItemAt(cl1.getSelectedIndex()));
-            pst.setString(2,addh);
+             pst=con.prepareStatement("delete from student where aadharnumber=?");
+            pst.setString(1,addh);
+            pst.executeUpdate();
+            
+            pst=con.prepareStatement("insert into student select * from 1st where aadharnumber=?");
+            pst.setString(1,addh);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Promoted");
             
