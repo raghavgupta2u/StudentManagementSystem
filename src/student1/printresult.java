@@ -46,6 +46,18 @@ public class printresult extends javax.swing.JFrame {
     String psst;
     String ppunjabi;
     
+    int eng1;
+    int math1;
+    int hindi1;
+    int art1;
+    int gk1;
+    int evs1;
+    int physiacl1;
+    int cse1;
+    int Science1;
+    int sst1;
+    int punjabi1;
+    
     String total;
     String dob;
     String result;
@@ -56,7 +68,7 @@ public class printresult extends javax.swing.JFrame {
     public printresult() {
         initComponents();
         
-        //if( classs.equals("1st") || classs.equals("2nd")){
+        if( classs.equals("1st") || classs.equals("2nd")){
         connect1();
         marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
         marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
@@ -69,17 +81,17 @@ public class printresult extends javax.swing.JFrame {
         marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
-                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
-                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
-                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
-                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |    "+pArt+"                                         |                 |\n" 
-                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |    "+pGk+"                                         |                 |\n");
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |       "+eng1+"          |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |       "+hindi1+"         |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |       "+math1+"          |\n"
+                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |    "+pArt+"                                          |       "+art1+"         |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |    "+pGk+"                                          |       "+gk1+"         |\n");
         marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
-   // }
-        /*else if (classs.equals("3rd") || classs.equals("4th")){
+    }
+        else if (classs.equals("3rd") || classs.equals("4th")){
            connect2();
         marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
         marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
@@ -92,15 +104,15 @@ public class printresult extends javax.swing.JFrame {
         marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
-                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
-                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
-                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
-                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
-                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |       "+eng1+"          |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |       "+hindi1+"         |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |       "+math1+"          |\n"
+                                             +"      4     |   ENVIROMENTAL STUDIES                   |    "+Evs+"            |    "+pEvs+"                                          |       "+evs1+"         |\n" 
+                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |    "+pGk+"                                          |       "+gk1+"         |\n");
         marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"\n");
-        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
         }
         else if (classs.equals("5th") || classs.equals("6th")){
            connect3();
@@ -115,19 +127,19 @@ public class printresult extends javax.swing.JFrame {
         marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
-                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
-                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
-                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
-                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
-                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |       "+eng1+"          |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |       "+hindi1+"         |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |       "+math1+"          |\n"
+                                             +"      4     |   ENVIROMENTAL STUDIES                   |    "+Evs+"            |    "+pEvs+"                                          |       "+evs1+"         |\n" 
+                                             +"      5     |   SOCIAL SCIENCE    |    "+sst+"            |    "+psst+"                                          |       "+sst1+"         |\n");
         marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"\n");
-        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
         }
         else if (classs.equals("7th") || classs.equals("8th")){
            connect4();
-        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+         marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
         marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
@@ -138,19 +150,19 @@ public class printresult extends javax.swing.JFrame {
         marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
-                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
-                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
-                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
-                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
-                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |       "+eng1+"          |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |       "+hindi1+"         |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |       "+math1+"          |\n"
+                                             +"      4     |   SCIENCE                   |    "+Science+"            |    "+pScience+"                                          |       "+Science1+"         |\n" 
+                                             +"      5     |   SOCIAL SCIENCE    |    "+sst+"            |    "+psst+"                                          |       "+sst1+"         |\n");
         marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"\n");
-        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
         }
         else if (classs.equals("9th") || classs.equals("10th")){
            connect5();
-        marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
+       marksheet.setText("\t\t\t S.R.P.A Adarsh Bhartiya School \n");
         marksheet.setText(marksheet.getText()+"\t\t\t"+"                 MARKSHEET");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"Roll no:- "+roll+"\n");
@@ -161,16 +173,17 @@ public class printresult extends javax.swing.JFrame {
         marksheet.setText(marksheet.getText()+"Date of Birth:- "+dob+"\n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"   SNO  |       SUBJECTS                         |    THEORY  |    INTERNAL ASSESSMENT |    TOTAL|\n"
-                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |                 |\n"
-                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |                 |\n"
-                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |                 |\n"
-                                             +"      4     |   ART AND CRAFT                   |    "+Art+"            |   "+pArt+"                                           |                 |\n" 
-                                             +"      5     |   GENERAL KNOWLEDGE    |    "+Gk+"            |      "+pGk+"                                        |                 |\n");
+                                             +"      1     |   ENGLISH COMM                    |   "+English+ "            |    "+pEnglish+"                                          |       "+eng1+"          |\n"
+                                             +"      2     |   HINDI                                       |    "+Hindi+"            |    "+pHindi+"                                          |       "+hindi1+"         |\n"
+                                             +"      3     |   MATHEMATICS                      |    "+Mathematics+"            |    "+pMathematics+"                                          |       "+math1+"          |\n"
+                                             +"      4     |   SCIENCE                   |    "+Science+"            |    "+pScience+"                                          |       "+Science1+"         |\n" 
+                                             +"      4     |   PHYSICAL EDUCATION                   |    "+physical+"            |    "+pphysical+"                                          |       "+physiacl1+"         |\n"         
+                                             +"      5     |   SOCIAL SCIENCE    |    "+sst+"            |    "+psst+"                                          |       "+sst1+"         |\n");
         marksheet.setText(marksheet.getText()+"                                                                                                                                                        "+total+"            \n");
         marksheet.setText(marksheet.getText()+"\n");
         marksheet.setText(marksheet.getText()+"\n");
-        marksheet.setText(marksheet.getText()+"RESULT = "+result+" 
-        }*/
+        marksheet.setText(marksheet.getText()+"RESULT = "+result+"                                                      ");
+        }
     }
  
     public void connect1(){
@@ -196,7 +209,15 @@ public class printresult extends javax.swing.JFrame {
                 pMathematics=rs.getString("pmath");
                 pArt=rs.getString("part");
                 pGk=rs.getString("pgk");
+                total=rs.getString("total");
+                result=rs.getString("resulte");
             }
+            eng1 = Integer.parseInt(English) + Integer.parseInt(pEnglish);
+            math1 = Integer.parseInt(Mathematics) + Integer.parseInt(pMathematics);
+            hindi1 = Integer.parseInt(Hindi) + Integer.parseInt(pHindi);
+            gk1 = Integer.parseInt(Gk) + Integer.parseInt(pGk);
+            art1 = Integer.parseInt(Art) + Integer.parseInt(pArt);
+            
         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
@@ -244,7 +265,14 @@ public class printresult extends javax.swing.JFrame {
                 pMathematics=rs.getString("pmath");
                 pGk=rs.getString("pgk");
                 pEvs=rs.getString("pevs");
+                total=rs.getString("total");
+                result=rs.getString("resulte");
             }
+            eng1 = Integer.parseInt(English) + Integer.parseInt(pEnglish);
+            math1 = Integer.parseInt(Mathematics) + Integer.parseInt(pMathematics);
+            hindi1 = Integer.parseInt(Hindi) + Integer.parseInt(pHindi);
+            gk1 = Integer.parseInt(Gk) + Integer.parseInt(pGk);
+            evs1 = Integer.parseInt(Evs) + Integer.parseInt(pEvs);
         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
@@ -291,7 +319,15 @@ public class printresult extends javax.swing.JFrame {
                 pHindi=rs.getString("phindi");
                 pMathematics=rs.getString("pmath");
                 pScience=rs.getString("pScience");
+                total=rs.getString("total");
+                result=rs.getString("resulte");
             }
+            eng1 = Integer.parseInt(English) + Integer.parseInt(pEnglish);
+            math1 = Integer.parseInt(Mathematics) + Integer.parseInt(pMathematics);
+            hindi1 = Integer.parseInt(Hindi) + Integer.parseInt(pHindi);
+            Science1 = Integer.parseInt(Science) + Integer.parseInt(pScience);
+            evs1 = Integer.parseInt(Evs) + Integer.parseInt(pEvs);
+            
         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
@@ -338,7 +374,14 @@ public class printresult extends javax.swing.JFrame {
                 pMathematics=rs.getString("pmath");
                 pScience=rs.getString("pscience");
                 psst=rs.getString("psocialscience");
+                total=rs.getString("total");
+                result=rs.getString("resulte");
             }
+            eng1 = Integer.parseInt(English) + Integer.parseInt(pEnglish);
+            math1 = Integer.parseInt(Mathematics) + Integer.parseInt(pMathematics);
+            hindi1 = Integer.parseInt(Hindi) + Integer.parseInt(pHindi);
+            Science1 = Integer.parseInt(Science) + Integer.parseInt(pScience);
+            sst1 = Integer.parseInt(sst) + Integer.parseInt(psst);
         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
@@ -387,8 +430,17 @@ public class printresult extends javax.swing.JFrame {
                 pEnglish=rs.getString("peng");
                 psst=rs.getString("psocialscience");
                 pScience=rs.getString("pscience");
+                total=rs.getString("total");
+                result=rs.getString("resulte");
             }
-        
+            
+            eng1 = Integer.parseInt(English) + Integer.parseInt(pEnglish);
+            math1 = Integer.parseInt(Mathematics) + Integer.parseInt(pMathematics);
+            hindi1 = Integer.parseInt(Hindi) + Integer.parseInt(pHindi);
+            Science1 = Integer.parseInt(Science) + Integer.parseInt(pScience);
+            sst1 = Integer.parseInt(sst) + Integer.parseInt(psst);
+            physiacl1 = Integer.parseInt(physical) + Integer.parseInt(pphysical);
+            
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(printresult.class.getName()).log(Level.SEVERE, null, ex);
         }

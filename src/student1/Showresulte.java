@@ -376,7 +376,7 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  partText.setText(rs.getString("part"));
                  pgkText.setText(rs.getString("pgk"));
-                 jTextField1.setText(rs.getString("total"));
+                 jTextField5.setText(rs.getString("total"));
                  jComboBox1.setSelectedItem(rs.getString("resulte"));
                  
                 }
@@ -426,7 +426,7 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  pgkText.setText(rs.getString("pgk"));
                  pevsText.setText(rs.getString("pevs"));
-                 jTextField1.setText(rs.getString("total"));
+                 jTextField5.setText(rs.getString("total"));
                  jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
@@ -473,7 +473,7 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
-                 jTextField1.setText(rs.getString("total"));
+                 jTextField5.setText(rs.getString("total"));
                  jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
@@ -521,7 +521,7 @@ public class Showresulte extends javax.swing.JFrame {
                  pmatheText.setText(rs.getString("pmath"));
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
-                 jTextField1.setText(rs.getString("total"));
+                 jTextField5.setText(rs.getString("total"));
                  jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
@@ -568,7 +568,7 @@ public class Showresulte extends javax.swing.JFrame {
                  psText.setText(rs.getString("pscience"));
                  pssText.setText(rs.getString("psocialscience"));
                  ppeText.setText(rs.getString("pphysicaledcation"));
-                 jTextField1.setText(rs.getString("total"));
+                 jTextField5.setText(rs.getString("total"));
                  jComboBox1.setSelectedItem(rs.getString("resulte"));
                 }
            
@@ -613,7 +613,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(8, pmatheText.getText());
                 pst.setString(9,partText.getText());
                 pst.setString(10,pgkText.getText());
-                pst.setString(11, jTextField1.getText());
+                pst.setString(11, jTextField5.getText());
                 pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
                 pst.setString(13, clas);
                 pst.setString(14, rolll);
@@ -623,7 +623,7 @@ public class Showresulte extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "update");
             }
             else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
-                pst=con.prepareStatement("update resulte3rd4th set Eng=?,hindi=?,Mathe=?,GK=?,evs=?,peng=?,phindi=?,pmathe=?,pgk=?,pevs=?,total=?,resulte=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte3rd4th set Eng=?,hindi=?,Math=?,GK=?,evs=?,peng=?,phindi=?,pmath=?,pgk=?,pevs=?,total=?,resulte=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -634,7 +634,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(8, pmatheText.getText());
                 pst.setString(9,pgkText.getText());
                 pst.setString(10,pevsText.getText());
-                pst.setString(11, jTextField1.getText());
+                pst.setString(11, jTextField5.getText());
                 pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
                 pst.setString(13, clas);
                 pst.setString(14, rolll);
@@ -643,7 +643,7 @@ public class Showresulte extends javax.swing.JFrame {
             }
             else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")){
                
-                pst=con.prepareStatement("update resulte5th6th set Eng=?,hindi=?,Mathe=?,Science=?,evs=?,socialscience=?,peng=?,phindi=?,pmathe=?,pscience=?,pevs=?,psocialscience,total=?,resulte=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte5th6th set Eng=?,hindi=?,Math=?,Science=?,evs=?,socialscience=?,peng=?,phindi=?,pmath=?,pscience=?,pevs=?,psocialscience,total=?,resulte=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -656,7 +656,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(10,psText.getText());
                 pst.setString(11,pevsText.getText());
                 pst.setString(12,pssText.getText());
-                pst.setString(13, jTextField1.getText());
+                pst.setString(13, jTextField5.getText());
                 pst.setString(14, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
                 pst.setString(15, clas);
                 pst.setString(16, rolll);
@@ -665,7 +665,7 @@ public class Showresulte extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "saved");
             }
             else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")){
-                pst=con.prepareStatement("update resulte7th8th set Eng=?,hindi=?,Mathe=?,Science=?,socialscience=?,peng=?,phindi=?,pmathe=?,pscience=?,psocialscience=?,total=?,resulte=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte7th8th set Eng=?,hindi=?,Math=?,Science=?,socialscience=?,peng=?,phindi=?,pmath=?,pscience=?,psocialscience=?,total=?,resulte=? where class=? and rollno=?");
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
                 pst.setString(3,matheText.getText());
@@ -676,7 +676,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(8, pmatheText.getText());
                 pst.setString(9,psText.getText());
                 pst.setString(10,pssText.getText());
-                pst.setString(11, jTextField1.getText());
+                pst.setString(11, jTextField5.getText());
                 pst.setString(12, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
                 pst.setString(13, clas);
                 pst.setString(14, rolll);
@@ -684,7 +684,7 @@ public class Showresulte extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "saved");
             }
             else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")){
-                pst=con.prepareStatement("update resulte9th10th set Eng=?,hindi=?,Mathe=?,Science=?,socialscience=?,physicaleducation=?,peng=?,phindi=?,pmathe=?,pScience=?,psocialscience=?,pphysicaleducation=?,total=?,resulte=? where class=? and rollno=?");
+                pst=con.prepareStatement("update resulte9th10th set Eng=?,hindi=?,Math=?,Science=?,socialscience=?,physicaleducation=?,peng=?,phindi=?,pmath=?,pScience=?,psocialscience=?,pphysicaleducation=?,total=?,resulte=? where class=? and rollno=?");
                 
                 pst.setString(1,engText.getText());
                 pst.setString(2, hindiText.getText());
@@ -698,7 +698,7 @@ public class Showresulte extends javax.swing.JFrame {
                 pst.setString(10,psText.getText());
                 pst.setString(11,pssText.getText());
                 pst.setString(12,ppeText.getText());
-                pst.setString(13, jTextField1.getText());
+                pst.setString(13, jTextField5.getText());
                 pst.setString(14, jComboBox1.getItemAt(jComboBox1.getSelectedIndex()));
                 pst.setString(15, clas);
                 pst.setString(16, rolll);
@@ -726,6 +726,7 @@ public class Showresulte extends javax.swing.JFrame {
         jTextField2.setText(null);
         jTextField3.setText(null);
         jTextField4.setText(null);
+        jTextField5.setText(null);
         rollno.setText(null);
         cl.setSelectedIndex(0);
         engText.setText(null);
@@ -750,6 +751,7 @@ public class Showresulte extends javax.swing.JFrame {
         pssText.setText(null);
         pText.setText(null);
         ppText.setText(null);
+        jComboBox1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -767,21 +769,84 @@ public class Showresulte extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int m1= Integer.parseInt(engText.getText());
-        int m2= Integer.parseInt(hindiText.getText());
-        int m3= Integer.parseInt(matheText.getText());
-        int m4= Integer.parseInt(artText.getText());
-        int m5= Integer.parseInt(gkText.getText());
-        int m6= Integer.parseInt(pengText.getText());
-        int m7= Integer.parseInt(phindiText.getText());
-        int m8= Integer.parseInt(pmatheText.getText());
-        int m9= Integer.parseInt(partText.getText());
-        int m10= Integer.parseInt(pgkText.getText());
-        int m11= Integer.parseInt(evsText.getText());
-        int m12= Integer.parseInt(pevsText.getText());
-
-        int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10+m11+m12 ;
-        jTextField1.setText(String.valueOf(result));
+        
+          if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m4= Integer.parseInt(artText.getText());
+             int m5= Integer.parseInt(gkText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m9= Integer.parseInt(partText.getText());
+             int m10= Integer.parseInt(pgkText.getText());
+            
+             int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10 ;
+             jTextField5.setText(String.valueOf(result));
+         }
+         else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());  
+             int m5= Integer.parseInt(gkText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m10= Integer.parseInt(pgkText.getText());
+             int m11= Integer.parseInt(evsText.getText());
+             int m12= Integer.parseInt(pevsText.getText());
+          
+     
+             int result = m1+m2+m3+m5+m6+m7+m8+m10+m11+m12 ;
+            jTextField5.setText(String.valueOf(result));
+         } 
+         else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m11= Integer.parseInt(evsText.getText());
+             int m12= Integer.parseInt(pevsText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+             int result = m1+m2+m3+m6+m7+m8+m11+m12+m19+m20 ;
+            jTextField5.setText(String.valueOf(result));
+         }
+         else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m17= Integer.parseInt(sText.getText());
+             int m18= Integer.parseInt(psText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+               int result = m1+m2+m3+m6+m7+m8+m19+m20+m17+m18 ;
+            jTextField5.setText(String.valueOf(result));
+}
+         else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m13= Integer.parseInt(peText.getText());
+             int m14= Integer.parseInt(ppeText.getText());
+             int m17= Integer.parseInt(sText.getText());
+             int m18= Integer.parseInt(psText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+                int result = m1+m2+m3+m6+m7+m8+m19+m20+m17+m18+m13+m14;
+            jTextField5.setText(String.valueOf(result));
+         } 
+         
+    
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

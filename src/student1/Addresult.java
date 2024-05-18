@@ -7,6 +7,7 @@ package student1;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import com.mysql.cj.xdevapi.Statement;
 import com.sun.jdi.connect.spi.Connection;
+import java.awt.Color;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,12 +23,14 @@ import javax.swing.table.DefaultTableModel;
  * @author w
  */
 public class Addresult extends javax.swing.JFrame {
-           
-    /**
+   /**
      * Creates new form Addresult
      */
     public Addresult() {
         initComponents();
+            
+            
+             
         
     }
     
@@ -130,12 +133,18 @@ public class Addresult extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Father Name", "rollno", "aadharno"
+                "Name", "class", "rollno", "aadharno"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 74, 1088, 62));
+
+        engText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                engTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(engText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 194, 220, -1));
 
         matheText.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +152,18 @@ public class Addresult extends javax.swing.JFrame {
                 matheTextActionPerformed(evt);
             }
         });
+        matheText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                matheTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(matheText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 282, 220, -1));
+
+        hindiText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                hindiTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(hindiText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 358, 220, -1));
 
         evsText.addActionListener(new java.awt.event.ActionListener() {
@@ -151,10 +171,39 @@ public class Addresult extends javax.swing.JFrame {
                 evsTextActionPerformed(evt);
             }
         });
+        evsText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                evsTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(evsText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 426, 220, -1));
+
+        gkText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gkTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(gkText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 500, 220, -1));
+
+        artText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                artTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(artText, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 580, 220, -1));
+
+        peText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                peTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(peText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 194, 294, -1));
+
+        csText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                csTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(csText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 272, 294, -1));
 
         sText.addActionListener(new java.awt.event.ActionListener() {
@@ -162,8 +211,25 @@ public class Addresult extends javax.swing.JFrame {
                 sTextActionPerformed(evt);
             }
         });
+        sText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                sTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(sText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 353, 294, -1));
+
+        ssText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ssTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(ssText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 426, 294, -1));
+
+        pText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pText, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 500, 294, -1));
 
         clear.setText("Clear");
@@ -176,6 +242,12 @@ public class Addresult extends javax.swing.JFrame {
             }
         });
         getContentPane().add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 635, -1, -1));
+
+        pengText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pengTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pengText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 194, 77, -1));
 
         pmatheText.addActionListener(new java.awt.event.ActionListener() {
@@ -183,9 +255,32 @@ public class Addresult extends javax.swing.JFrame {
                 pmatheTextActionPerformed(evt);
             }
         });
+        pmatheText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pmatheTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pmatheText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 282, 77, -1));
+
+        phindiText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phindiTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(phindiText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 358, 77, -1));
+
+        pevsText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pevsTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pevsText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 426, 77, -1));
+
+        pgkText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pgkTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pgkText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 500, 77, -1));
 
         partText.addActionListener(new java.awt.event.ActionListener() {
@@ -193,11 +288,46 @@ public class Addresult extends javax.swing.JFrame {
                 partTextActionPerformed(evt);
             }
         });
+        partText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                partTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(partText, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 580, 77, -1));
+
+        ppeText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ppeTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(ppeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 194, 80, -1));
+
+        pcsText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pcsTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pcsText, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 272, 80, -1));
+
+        psText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                psTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(psText, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 353, 80, -1));
+
+        pssText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pssTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(pssText, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 426, 80, -1));
+
+        ppText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ppTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(ppText, new org.netbeans.lib.awtextra.AbsoluteConstraints(837, 500, 80, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -340,7 +470,7 @@ public class Addresult extends javax.swing.JFrame {
                 for(int i=1;i<=q;i++){
                     
                     columnData.add(rs.getString("name"));
-                    columnData.add(rs.getString("fathername"));
+                    columnData.add(rs.getString("class"));
                     columnData.add(rs.getString("rollno"));
                     columnData.add(rs.getString("aadharnumber"));
    
@@ -365,7 +495,7 @@ public class Addresult extends javax.swing.JFrame {
             }
          } catch (ClassNotFoundException | SQLException ex) {} 
        
-        evsText.setEditable(false);
+         evsText.setEditable(false);
          pevsText.setEditable(false);
          peText.setEditable(false);
          ppeText.setEditable(false);
@@ -508,7 +638,6 @@ public class Addresult extends javax.swing.JFrame {
         // TODO add your handling code here:
         Statement st=null;
         PreparedStatement pst=null;
-          
         
         String name= jTable1.getValueAt(0, 0).toString() ;
         String clas= jTable1.getValueAt(0, 1).toString() ;
@@ -653,22 +782,395 @@ public class Addresult extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            int m1= Integer.parseInt(engText.getText());
-            int m2= Integer.parseInt(hindiText.getText());
-            int m3= Integer.parseInt(matheText.getText());
-            int m4= Integer.parseInt(artText.getText());
-            int m5= Integer.parseInt(gkText.getText());
-            int m6= Integer.parseInt(pengText.getText());
-            int m7= Integer.parseInt(phindiText.getText());
-            int m8= Integer.parseInt(pmatheText.getText());
-            int m9= Integer.parseInt(partText.getText());
-            int m10= Integer.parseInt(pgkText.getText());
-            int m11= Integer.parseInt(evsText.getText());
-            int m12= Integer.parseInt(pevsText.getText());
+        
+             
+         if(cl.getSelectedItem().equals("1st") || cl.getSelectedItem().equals("2nd")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m4= Integer.parseInt(artText.getText());
+             int m5= Integer.parseInt(gkText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m9= Integer.parseInt(partText.getText());
+             int m10= Integer.parseInt(pgkText.getText());
             
-             int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10+m11+m12 ;
-            jTextField1.setText(String.valueOf(result)); 
+             int result = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10 ;
+             jTextField1.setText(String.valueOf(result));
+         }
+         else if (cl.getSelectedItem().equals("3rd") || cl.getSelectedItem().equals("4th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());  
+             int m5= Integer.parseInt(gkText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m10= Integer.parseInt(pgkText.getText());
+             int m11= Integer.parseInt(evsText.getText());
+             int m12= Integer.parseInt(pevsText.getText());
+          
+     
+             int result = m1+m2+m3+m5+m6+m7+m8+m10+m11+m12 ;
+            jTextField1.setText(String.valueOf(result));
+         } 
+         else if (cl.getSelectedItem().equals("5th") || cl.getSelectedItem().equals("6th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m11= Integer.parseInt(evsText.getText());
+             int m12= Integer.parseInt(pevsText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+             int result = m1+m2+m3+m6+m7+m8+m11+m12+m19+m20 ;
+            jTextField1.setText(String.valueOf(result));
+         }
+         else if (cl.getSelectedItem().equals("7th") || cl.getSelectedItem().equals("8th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m17= Integer.parseInt(sText.getText());
+             int m18= Integer.parseInt(psText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+               int result = m1+m2+m3+m6+m7+m8+m19+m20+m17+m18 ;
+            jTextField1.setText(String.valueOf(result));
+}
+         else if (cl.getSelectedItem().equals("9th") || cl.getSelectedItem().equals("10th")){
+             int m1= Integer.parseInt(engText.getText());
+             int m2= Integer.parseInt(hindiText.getText());
+             int m3= Integer.parseInt(matheText.getText());
+             int m6= Integer.parseInt(pengText.getText());
+             int m7= Integer.parseInt(phindiText.getText());
+             int m8= Integer.parseInt(pmatheText.getText());
+             int m13= Integer.parseInt(peText.getText());
+             int m14= Integer.parseInt(ppeText.getText());
+             int m17= Integer.parseInt(sText.getText());
+             int m18= Integer.parseInt(psText.getText());
+             int m19= Integer.parseInt(ssText.getText());
+             int m20= Integer.parseInt(pssText.getText());
+                int result = m1+m2+m3+m6+m7+m8+m19+m20+m17+m18+m13+m14;
+            jTextField1.setText(String.valueOf(result));
+         } 
+         
+    
+             
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void engTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_engTextKeyTyped
+        // TODO add your handling code here:
+        char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(engText.getText().length()>1)
+        {
+            evt.consume();
+        }
+         
+    }//GEN-LAST:event_engTextKeyTyped
+
+    private void pengTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pengTextKeyTyped
+        // TODO add your handling code here:
+           char k=evt.getKeyChar();
+        if(!(Character.isDigit(k)))
+        {
+            evt.consume();
+        }
+        if(pengText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pengTextKeyTyped
+
+    private void matheTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_matheTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(matheText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_matheTextKeyTyped
+
+    private void pmatheTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pmatheTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pmatheText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pmatheTextKeyTyped
+
+    private void hindiTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hindiTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(hindiText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_hindiTextKeyTyped
+
+    private void phindiTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phindiTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(phindiText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_phindiTextKeyTyped
+
+    private void evsTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_evsTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(evsText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_evsTextKeyTyped
+
+    private void pevsTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pevsTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pevsText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pevsTextKeyTyped
+
+    private void gkTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gkTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(gkText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_gkTextKeyTyped
+
+    private void pgkTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pgkTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pgkText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pgkTextKeyTyped
+
+    private void artTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_artTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(artText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_artTextKeyTyped
+
+    private void partTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_partTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(partText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_partTextKeyTyped
+
+    private void peTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(peText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_peTextKeyTyped
+
+    private void ppeTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ppeTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(ppeText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_ppeTextKeyTyped
+
+    private void csTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(csText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_csTextKeyTyped
+
+    private void pcsTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pcsTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pcsText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pcsTextKeyTyped
+
+    private void sTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(sText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_sTextKeyTyped
+
+    private void psTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_psTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(psText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_psTextKeyTyped
+
+    private void ssTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ssTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(ssText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_ssTextKeyTyped
+
+    private void pssTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pssTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pssText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pssTextKeyTyped
+
+    private void pTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(pText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_pTextKeyTyped
+
+    private void ppTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ppTextKeyTyped
+        // TODO add your handling code here:
+           char j=evt.getKeyChar();
+        if(!(Character.isDigit(j)))
+        {
+            evt.consume();
+        }
+        if(ppText.getText().length()>1)
+        {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_ppTextKeyTyped
 
     /**
      * @param args the command line arguments
